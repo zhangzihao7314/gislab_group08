@@ -3227,6 +3227,7 @@ input, select, textarea {
 		position: relative;
 		z-index: 1;
 		overflow: hidden;
+		padding-top: 5rem; /* ✅ 新增：预留导航栏高度 */
 	}
 
 		#wrapper > .bg {
@@ -3286,6 +3287,7 @@ input, select, textarea {
 /* Intro */
 
 	#intro {
+		
 		color: #ffffff;
 		padding: 8rem 4rem 6rem 4rem ;
 		-moz-align-items: center;
@@ -3399,9 +3401,9 @@ input, select, textarea {
 			text-align: center;
 		}
 
-		#intro + #header {
+		/* #intro + #header {
 			margin-top: -20rem;
-		}
+		} */
 
 			#intro + #header .logo {
 				-moz-transform: translateY(2rem);
@@ -3607,27 +3609,28 @@ input, select, textarea {
 
 /* Nav */
 
-	#nav {
-		color: #ffffff;
-		display: -moz-flex;
-		display: -webkit-flex;
-		display: -ms-flex;
-		display: flex;
-		-moz-transition: -moz-transform 1s ease, opacity 1s ease;
-		-webkit-transition: -webkit-transform 1s ease, opacity 1s ease;
-		-ms-transition: -ms-transform 1s ease, opacity 1s ease;
-		transition: transform 1s ease, opacity 1s ease;
-		background: rgba(255, 255, 255, 0.175);
-		height: 4rem;
-		line-height: 4rem;
-		margin: -4rem auto 0 auto;
-		overflow: hidden;
-		padding: 0 2rem 0 0;
-		position: relative;
-		width: calc(100% - 4rem);
-		max-width: 72rem;
-		z-index: 2;
-	}
+		#nav {
+			position: fixed;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 4rem;
+			line-height: 4rem;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			gap: 2rem;
+ 			background: linear-gradient(to bottom, rgba(0, 0, 0, 0.5), transparent);
+			/* background: rgba(30, 30, 30, 0.3); 半透明背景 */
+			backdrop-filter: blur(8px);        /* 背景模糊：支持现代浏览器 */
+			-webkit-backdrop-filter: blur(8px);
+
+			color: #fff;
+			z-index: 10000;
+			padding: 0 2rem;
+			box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+		}
+
 
 		#nav ul.divided li {
 			border-top-color: #ffffff;
@@ -3713,7 +3716,7 @@ input, select, textarea {
 					-ms-transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
 					transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
 					display: block;
-					font-size: 0.8rem;
+					font-size: 1.0rem;
 					outline: none;
 					padding: 0 2rem;
 				}
