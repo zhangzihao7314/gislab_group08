@@ -2,66 +2,205 @@
 // 创建图层组
 // =========================
 
+
+// Pollutant maps (NO2, PM2.5, PM10)-December 2022
 const pollutionCAMS2022 = new ol.layer.Group({
-    title: "Air Pollution – CAMS Dec 2022",
+    title: "Pollutant maps-December 2022",
     layers: [
-        new ol.layer.Image({ title: "NO₂ - CAMS Dec 2022", visible: false, source: new ol.source.ImageWMS({ url: 'https://www.gis-geoserver.polimi.it/geoserver/wms', params: { 'LAYERS': 'gisgeoserver_08:01.Portugal_CAMS_no2_2022_12' }, serverType: 'geoserver' }) }),
-        new ol.layer.Image({ title: "PM2.5 - CAMS Dec 2022", visible: false, source: new ol.source.ImageWMS({ url: 'https://www.gis-geoserver.polimi.it/geoserver/wms', params: { 'LAYERS': 'gisgeoserver_08:02.Portugal_CAMS_pm2p5_2022_12' }, serverType: 'geoserver' }) }),
-        new ol.layer.Image({ title: "PM10 - CAMS Dec 2022", visible: false, source: new ol.source.ImageWMS({ url: 'https://www.gis-geoserver.polimi.it/geoserver/wms', params: { 'LAYERS': 'gisgeoserver_08:03.Portugal_CAMS_pm10_2022_12' }, serverType: 'geoserver' }) })
+        
+        new ol.layer.Image({ 
+            title: "PM10 - CAMS Dec 2022", 
+            visible: false, 
+            source: new ol.source.ImageWMS({ 
+                url: 'https://www.gis-geoserver.polimi.it/geoserver/wms', 
+                params: { 'LAYERS': 'gisgeoserver_08:03.Portugal_CAMS_pm10_2022_12' }, 
+                serverType: 'geoserver' 
+            }) 
+        }),
+        new ol.layer.Image({ 
+            title: "PM2.5 - CAMS Dec 2022", 
+            visible: false, 
+            source: new ol.source.ImageWMS({ 
+                url: 'https://www.gis-geoserver.polimi.it/geoserver/wms', 
+                params: { 'LAYERS': 'gisgeoserver_08:02.Portugal_CAMS_pm2p5_2022_12' }, 
+                serverType: 'geoserver' 
+            }) 
+        }),
+        new ol.layer.Image({
+            title: "NO₂ - CAMS Dec 2022",
+            visible: false,
+            source: new ol.source.ImageWMS({
+                url: 'https://www.gis-geoserver.polimi.it/geoserver/wms',
+                params: { 'LAYERS': 'gisgeoserver_08:01.Portugal_CAMS_no2_2022_12' },
+                serverType: 'geoserver'
+            })
+        })
     ]
 });
 
+//Average pollutant maps (NO2, PM2.5, PM10) -2022
 const annualAvg2022 = new ol.layer.Group({
-    title: "Annual Averages 2022",
+    title: "Average pollutant maps-2022",
     layers: [
-        new ol.layer.Image({ title: "NO₂ - Annual Avg 2022", visible: false, source: new ol.source.ImageWMS({ url: 'https://www.gis-geoserver.polimi.it/geoserver/wms', params: { 'LAYERS': 'gisgeoserver_08:04.Portugal_average_no2_2022' }, serverType: 'geoserver' }) }),
-        new ol.layer.Image({ title: "PM2.5 - Annual Avg 2022", visible: false, source: new ol.source.ImageWMS({ url: 'https://www.gis-geoserver.polimi.it/geoserver/wms', params: { 'LAYERS': 'gisgeoserver_08:05.Portugal_average_pm2p5_2022' }, serverType: 'geoserver' }) }),
-        new ol.layer.Image({ title: "PM10 - Annual Avg 2022", visible: false, source: new ol.source.ImageWMS({ url: 'https://www.gis-geoserver.polimi.it/geoserver/wms', params: { 'LAYERS': 'gisgeoserver_08:06.Portugal_average_pm10_2022' }, serverType: 'geoserver' }) })
+        new ol.layer.Image({ 
+            title: "PM10 - Annual Avg 2022", 
+            visible: false, 
+            source: new ol.source.ImageWMS({ 
+                url: 'https://www.gis-geoserver.polimi.it/geoserver/wms', 
+                params: { 'LAYERS': 'gisgeoserver_08:06.Portugal_average_pm10_2022' }, 
+                serverType: 'geoserver' 
+            }) 
+        }),
+        new ol.layer.Image({ 
+            title: "PM2.5 - Annual Avg 2022", 
+            visible: false, 
+            source: new ol.source.ImageWMS({ 
+                url: 'https://www.gis-geoserver.polimi.it/geoserver/wms', 
+                params: { 'LAYERS': 'gisgeoserver_08:05.Portugal_average_pm2p5_2022' }, 
+                serverType: 'geoserver' 
+            }) 
+        }),
+        new ol.layer.Image({ 
+            title: "NO₂ - Annual Avg 2022", 
+            visible: false, 
+            source: new ol.source.ImageWMS({ 
+                url: 'https://www.gis-geoserver.polimi.it/geoserver/wms', 
+                params: { 'LAYERS': 'gisgeoserver_08:04.Portugal_average_no2_2022' }, 
+                serverType: 'geoserver' 
+            }) 
+        }),
     ]
 });
 
+//Concentration pollutant maps (NO2, PM2.5, PM10)-2020
 const map2020 = new ol.layer.Group({
-    title: "2020 Maps",
+    title: "Concentration pollutant maps-2020",
     layers: [
-        new ol.layer.Image({ title: "NO₂ - 2020 Map", visible: false, source: new ol.source.ImageWMS({ url: 'https://www.gis-geoserver.polimi.it/geoserver/wms', params: { 'LAYERS': 'gisgeoserver_08:07.Portugal_no2_concentration_map_2020' }, serverType: 'geoserver' }) }),
-        new ol.layer.Image({ title: "PM2.5 - 2020 Map", visible: false, source: new ol.source.ImageWMS({ url: 'https://www.gis-geoserver.polimi.it/geoserver/wms', params: { 'LAYERS': 'gisgeoserver_08:08.Portugal_pm2p5_concentration_map_2020' }, serverType: 'geoserver' }) }),
-        new ol.layer.Image({ title: "PM10 - 2020 Map", visible: false, source: new ol.source.ImageWMS({ url: 'https://www.gis-geoserver.polimi.it/geoserver/wms', params: { 'LAYERS': 'gisgeoserver_08:09.Portugal_pm10_concentration_map_2020' }, serverType: 'geoserver' }) })
+        new ol.layer.Image({ 
+            title: "PM10 - 2020 Map", 
+            visible: false, 
+            source: new ol.source.ImageWMS({ 
+                url: 'https://www.gis-geoserver.polimi.it/geoserver/wms', 
+                params: { 'LAYERS': 'gisgeoserver_08:09.Portugal_pm10_concentration_map_2020' }, 
+                serverType: 'geoserver' 
+            }) 
+        }),
+        new ol.layer.Image({ 
+            title: "PM2.5 - 2020 Map", 
+            visible: false, 
+            source: new ol.source.ImageWMS({ 
+                url: 'https://www.gis-geoserver.polimi.it/geoserver/wms', 
+                params: { 'LAYERS': 'gisgeoserver_08:08.Portugal_pm2p5_concentration_map_2020' }, 
+                serverType: 'geoserver' 
+            }) 
+        }),
+        new ol.layer.Image({ 
+            title: "NO₂ - 2020 Map", 
+            visible: false, 
+            source: new ol.source.ImageWMS({ 
+                url: 'https://www.gis-geoserver.polimi.it/geoserver/wms', 
+                params: { 'LAYERS': 'gisgeoserver_08:07.Portugal_no2_concentration_map_2020' }, 
+                serverType: 'geoserver' 
+            }) 
+        })
     ]
 });
 
+//NO2/PM2.5/PM10 2022 Annual Average Dierence from the 2017-2021 mean
 const multiYearAAD = new ol.layer.Group({
-    title: "Multi-year AAD Maps",
+    title: "Annual Average-2022 Mean-2017-2021 ",
     layers: [
-        new ol.layer.Image({ title: "NO₂ - AAD 2017–2021 Map", visible: false, source: new ol.source.ImageWMS({ url: 'https://www.gis-geoserver.polimi.it/geoserver/wms', params: { 'LAYERS': 'gisgeoserver_08:10.Portugal_no2_2017-2021_AAD_map_2022.tif' }, serverType: 'geoserver' }) }),
-        new ol.layer.Image({ title: "PM2.5 – AAD 2017–2021 Map (2022)", visible: false, source: new ol.source.ImageWMS({ url: 'https://www.gis-geoserver.polimi.it/geoserver/wms', params: { 'LAYERS': 'gisgeoserver_08:12.Portugal_pm2p5_2017-2021_AAD_map_2022' }, serverType: 'geoserver' }) }),
-        new ol.layer.Image({ title: "PM10 – AAD 2017–2021 Map (2022)", visible: false, source: new ol.source.ImageWMS({ url: 'https://www.gis-geoserver.polimi.it/geoserver/wms', params: { 'LAYERS': 'gisgeoserver_08:14.Portugal_pm10_2017-2021_AAD_map_2022' }, serverType: 'geoserver' }) })
-    ]
+        new ol.layer.Image({ 
+            title: "PM10 – AAD 2017–2021 Map (2022)", 
+            visible: false, 
+            source: new ol.source.ImageWMS({ 
+                url: 'https://www.gis-geoserver.polimi.it/geoserver/wms', 
+                params: { 'LAYERS': 'gisgeoserver_08:14.Portugal_pm10_2017-2021_AAD_map_2022' }, 
+                serverType: 'geoserver' 
+            }) 
+        }),
+        new ol.layer.Image({ 
+            title: "PM2.5 – AAD 2017–2021 Map (2022)", 
+            visible: false, 
+            source: new ol.source.ImageWMS({ 
+                url: 'https://www.gis-geoserver.polimi.it/geoserver/wms', 
+                params: { 'LAYERS': 'gisgeoserver_08:12.Portugal_pm2p5_2017-2021_AAD_map_2022' }, 
+                serverType: 'geoserver' 
+            }) 
+        }),
+        new ol.layer.Image({ 
+            title: "NO₂ - AAD 2017–2021 Map", 
+            visible: false, 
+            source: new ol.source.ImageWMS({ 
+                url: 'https://www.gis-geoserver.polimi.it/geoserver/wms', 
+                params: { 'LAYERS': 'gisgeoserver_08:10.Portugal_no2_2017-2021_AAD_map_2022.tif' }, 
+                serverType: 'geoserver' 
+            }) 
+        })
+        
+            ]
 });
 
-const zonalStats = new ol.layer.Group({
-    title: "Zonal Statistics",
-    layers: [
-        new ol.layer.Image({ title: "NO₂ – Zonal Stats 2013–2022", visible: false, source: new ol.source.ImageWMS({ url: 'https://www.gis-geoserver.polimi.it/geoserver/wms', params: { 'LAYERS': 'gisgeoserver_08:17.Portugal_no2_zozal_statistics_2013-2022' }, serverType: 'geoserver' }) }),
-        new ol.layer.Image({ title: "PM2.5 – Zonal Stats 2013–2022", visible: false, source: new ol.source.ImageWMS({ url: 'https://www.gis-geoserver.polimi.it/geoserver/wms', params: { 'LAYERS': 'gisgeoserver_08:18.Portugal_pm2p5_zonal_statistics_2013-2022' }, serverType: 'geoserver' }) }),
-        new ol.layer.Image({ title: "PM10 - Zonal Statistics 2013–2022", visible: false, source: new ol.source.ImageWMS({ url: 'https://www.gis-geoserver.polimi.it/geoserver/wms', params: { 'LAYERS': 'gisgeoserver_08:19.Portugal_pm10_zonal_statistics_2013-2022' }, serverType: 'geoserver' }) })
-    ]
-});
-
-const bivariateMaps = new ol.layer.Group({
-    title: "Bivariate Maps",
-    layers: [
-        new ol.layer.Image({ title: "NO₂ - 2020 Bivariate", visible: false, source: new ol.source.ImageWMS({ url: 'https://www.gis-geoserver.polimi.it/geoserver/wms', params: { 'LAYERS': 'gisgeoserver_08:20.Portugal_no2_2020_bivariate' }, serverType: 'geoserver' }) }),
-        new ol.layer.Image({ title: "PM2.5 - 2020 Bivariate", visible: false, source: new ol.source.ImageWMS({ url: 'https://www.gis-geoserver.polimi.it/geoserver/wms', params: { 'LAYERS': 'gisgeoserver_08:21.Portugal_pm2p5_2020_bivariate' }, serverType: 'geoserver' }) }),
-        new ol.layer.Image({ title: "PM10 - 2020 Bivariate", visible: false, source: new ol.source.ImageWMS({ url: 'https://www.gis-geoserver.polimi.it/geoserver/wms', params: { 'LAYERS': 'gisgeoserver_08:22.Portugal_pm10_2020_bivariat' }, serverType: 'geoserver' }) })
-    ]
-});
-
+//ReclassiFFied Land Cover-2022
 const landCover = new ol.layer.Group({
-    title: "Land Cover",
+    title: "ReclassiFFied Land Cover-2022",
     layers: [
-        new ol.layer.Image({ title: "Land Cover – Reclassified 2022", visible: false, source: new ol.source.ImageWMS({ url: 'https://www.gis-geoserver.polimi.it/geoserver/wms', params: { 'LAYERS': 'gisgeoserver_08:16.Portugal_LC_reclassified_2022' }, serverType: 'geoserver' }) })
+        new ol.layer.Image({ 
+            title: "Land Cover – Reclassified 2022", 
+            visible: false, 
+            source: new ol.source.ImageWMS({ 
+                url: 'https://www.gis-geoserver.polimi.it/geoserver/wms', 
+                params: { 'LAYERS': 'gisgeoserver_08:16.Portugal_LC_reclassiffied_2022' }, 
+                serverType: 'geoserver' 
+            }) })
     ]
 });
+
+//Zonal Statistics-2013-2022
+const zonalStats = new ol.layer.Group({
+    title: "Zonal Statistics-2013-2022",
+    layers: [
+        new ol.layer.Image({ title: "PM10 - Zonal Statistics 2013–2022", visible: false, source: new ol.source.ImageWMS({ url: 'https://www.gis-geoserver.polimi.it/geoserver/wms', params: { 'LAYERS': 'gisgeoserver_08:19.Portugal_pm10_zonal_statistics_2013-2022' }, serverType: 'geoserver' }) }),
+        new ol.layer.Image({ title: "PM2.5 – Zonal Stats 2013–2022", visible: false, source: new ol.source.ImageWMS({ url: 'https://www.gis-geoserver.polimi.it/geoserver/wms', params: { 'LAYERS': 'gisgeoserver_08:18.Portugal_pm2p5_zonal_statistics_2013-2022' }, serverType: 'geoserver' }) }),
+        new ol.layer.Image({ title: "NO₂ – Zonal Stats 2013–2022", visible: false, source: new ol.source.ImageWMS({ url: 'https://www.gis-geoserver.polimi.it/geoserver/wms', params: { 'LAYERS': 'gisgeoserver_08:17.Portugal_no2_zozal_statistics_2013-2022' }, serverType: 'geoserver' }) })
+    ]
+});
+
+//Bivariate Maps-2020
+const bivariateMaps = new ol.layer.Group({
+    title: "Bivariate Maps-2020",
+    layers: [
+        new ol.layer.Image({ 
+            title: "PM10 - 2020 Bivariate", 
+            visible: false, 
+            source: new ol.source.ImageWMS({ 
+                url: 'https://www.gis-geoserver.polimi.it/geoserver/wms', 
+                params: { 'LAYERS': 'gisgeoserver_08:22.Portugal_pm10_2020_bivariat' }, 
+                serverType: 'geoserver' 
+            }) 
+        }),
+        new ol.layer.Image({ 
+            title: "PM2.5 - 2020 Bivariate", 
+            visible: false, 
+            source: new ol.source.ImageWMS({ 
+                url: 'https://www.gis-geoserver.polimi.it/geoserver/wms', 
+                params: { 'LAYERS': 'gisgeoserver_08:21.Portugal_pm2p5_2020_bivariate' }, 
+                serverType: 'geoserver' 
+            }) 
+        }),
+        new ol.layer.Image({ 
+            title: "NO₂ - 2020 Bivariate", 
+            visible: false, 
+            source: new ol.source.ImageWMS({ 
+                url: 'https://www.gis-geoserver.polimi.it/geoserver/wms', 
+                params: { 'LAYERS': 'gisgeoserver_08:20.Portugal_no2_2020_bivariate' }, 
+                serverType: 'geoserver' 
+            }) 
+        })
+    ]
+});
+
+
 
 // 创建地图
 let map = new ol.Map({
@@ -77,13 +216,13 @@ let map = new ol.Map({
             type: 'base',
             source: new ol.source.OSM()
         }),
-        pollutionCAMS2022,
-        annualAvg2022,
-        map2020,
-        multiYearAAD,
-        landCover,
+        bivariateMaps,
         zonalStats,
-        bivariateMaps
+        landCover,
+        multiYearAAD,
+        map2020,
+        annualAvg2022,
+        pollutionCAMS2022
     ],
 
     controls: [
