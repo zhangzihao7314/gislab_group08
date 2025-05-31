@@ -3,6 +3,7 @@
     height: 100%;
 }
 
+/* 按钮浮动样式 */
 .floating-button {
     position: absolute;
     z-index: 999;
@@ -10,11 +11,12 @@
     top: 10px;
 }
 
+/* 背景样式修改示例 */
 .wrapper.style2 {
-    /* This is an example of how to change colors in the template */
     background-color: #2e7947;
 }
 
+/* 透明遮罩 */
 .banner-transparency {
     opacity: 0.2;
     background-color: #fff;
@@ -26,25 +28,15 @@
     display: block;
 }
 
+/* 自定义横幅背景图 */
 .custom-banner {
-    /*Change the background image here*/
     background-image: url('../../images/background-index.jpg') !important;
     background-size: cover !important;
-
-    /* Original background, for reference
-    background-attachment: scroll, scroll, scroll, fixed;
-    background-color: #645862;
-    background-image: url("images/light-bl.svg"), url("images/light-br.svg"), url("images/overlay.png"), url("../../images/banner.jpg");
-    background-position: bottom left, bottom right, top left, top center;
-    background-repeat: no-repeat, no-repeat, repeat, no-repeat;
-    background-size: 25em, 25em, auto, cover;
-    */
-
     width: 100%;
     height: 100%;
 }
 
-/*Popup Styles*/
+/* Popup 样式 */
 .ol-popup {
     position: absolute;
     background-color: white;
@@ -52,8 +44,9 @@
     padding: 15px;
     border-radius: 10px;
     border: 1px solid #cccccc;
-    bottom: 12px;
-    left: -50px;
+    bottom: auto;
+    top: 50px;
+    left: 50px;
     min-width: 280px;
 }
 
@@ -89,15 +82,30 @@
     right: 8px;
 }
 
-.ol-popup-closer:after {
+/* 鼠标坐标控件 */
+.custom-mouse-position {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    z-index: 1000;
+    background: rgba(255, 255, 255, 0.7);
+    padding: 3px 8px;
+    font-size: 12px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
 }
 
-/*Add your new styles after this line*/
-.custom-control {
-    bottom: 30px;
+/* 比例尺控件 */
+.ol-scale-line {
     position: absolute;
-    right: 15px;
-    background: white;
-    border: 2px solid cadetblue;
-    padding: 10px;
+    bottom: 10px;
+    left: 10px;
+    z-index: 1000;
+    background: rgba(255, 255, 255, 0.7);
+    padding: 3px 8px;
+    font-size: 12px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
 }
+
+/* 可扩展样式：图层面板、Legend 等可以继续添加 */

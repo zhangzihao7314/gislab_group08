@@ -1,238 +1,109 @@
-//OpenStreetMap
-let osm = new ol.layer.Tile({
-    title: "OpenStreetMap",
-    type: 'base',
-    visible: true,
-    source: new ol.source.OSM()
+// =========================
+// 创建图层组
+// =========================
+
+const pollutionCAMS2022 = new ol.layer.Group({
+    title: "Air Pollution – CAMS Dec 2022",
+    layers: [
+        new ol.layer.Image({ title: "NO₂ - CAMS Dec 2022", visible: false, source: new ol.source.ImageWMS({ url: 'https://www.gis-geoserver.polimi.it/geoserver/wms', params: { 'LAYERS': 'gisgeoserver_08:01.Portugal_CAMS_no2_2022_12' }, serverType: 'geoserver' }) }),
+        new ol.layer.Image({ title: "PM2.5 - CAMS Dec 2022", visible: false, source: new ol.source.ImageWMS({ url: 'https://www.gis-geoserver.polimi.it/geoserver/wms', params: { 'LAYERS': 'gisgeoserver_08:02.Portugal_CAMS_pm2p5_2022_12' }, serverType: 'geoserver' }) }),
+        new ol.layer.Image({ title: "PM10 - CAMS Dec 2022", visible: false, source: new ol.source.ImageWMS({ url: 'https://www.gis-geoserver.polimi.it/geoserver/wms', params: { 'LAYERS': 'gisgeoserver_08:03.Portugal_CAMS_pm10_2022_12' }, serverType: 'geoserver' }) })
+    ]
 });
 
-//Create the layer groups and add the layers to them
-let basemapLayers = new ol.layer.Group({
-    title: "Base Maps",
-    layers: [osm]
+const annualAvg2022 = new ol.layer.Group({
+    title: "Annual Averages 2022",
+    layers: [
+        new ol.layer.Image({ title: "NO₂ - Annual Avg 2022", visible: false, source: new ol.source.ImageWMS({ url: 'https://www.gis-geoserver.polimi.it/geoserver/wms', params: { 'LAYERS': 'gisgeoserver_08:04.Portugal_average_no2_2022' }, serverType: 'geoserver' }) }),
+        new ol.layer.Image({ title: "PM2.5 - Annual Avg 2022", visible: false, source: new ol.source.ImageWMS({ url: 'https://www.gis-geoserver.polimi.it/geoserver/wms', params: { 'LAYERS': 'gisgeoserver_08:05.Portugal_average_pm2p5_2022' }, serverType: 'geoserver' }) }),
+        new ol.layer.Image({ title: "PM10 - Annual Avg 2022", visible: false, source: new ol.source.ImageWMS({ url: 'https://www.gis-geoserver.polimi.it/geoserver/wms', params: { 'LAYERS': 'gisgeoserver_08:06.Portugal_average_pm10_2022' }, serverType: 'geoserver' }) })
+    ]
 });
 
-//Environmental Factors Layers group
-let dtm = new ol.layer.Image({
-    title: "DTM",
-    source: new ol.source.ImageWMS({
-        url: 'https://www.gis-geoserver.polimi.it/geoserver/gisgeoserver_06/wms',
-        params: { 'LAYERS': 'gisgeoserver_06:dtm' }
-    })
+const map2020 = new ol.layer.Group({
+    title: "2020 Maps",
+    layers: [
+        new ol.layer.Image({ title: "NO₂ - 2020 Map", visible: false, source: new ol.source.ImageWMS({ url: 'https://www.gis-geoserver.polimi.it/geoserver/wms', params: { 'LAYERS': 'gisgeoserver_08:07.Portugal_no2_concentration_map_2020' }, serverType: 'geoserver' }) }),
+        new ol.layer.Image({ title: "PM2.5 - 2020 Map", visible: false, source: new ol.source.ImageWMS({ url: 'https://www.gis-geoserver.polimi.it/geoserver/wms', params: { 'LAYERS': 'gisgeoserver_08:08.Portugal_pm2p5_concentration_map_2020' }, serverType: 'geoserver' }) }),
+        new ol.layer.Image({ title: "PM10 - 2020 Map", visible: false, source: new ol.source.ImageWMS({ url: 'https://www.gis-geoserver.polimi.it/geoserver/wms', params: { 'LAYERS': 'gisgeoserver_08:09.Portugal_pm10_concentration_map_2020' }, serverType: 'geoserver' }) })
+    ]
 });
 
-let ndvi = new ol.layer.Image({
-    title: "NDVI",
-    source: new ol.source.ImageWMS({
-        url: 'https://www.gis-geoserver.polimi.it/geoserver/gisgeoserver_06/wms',
-        params: { 'LAYERS': 'gisgeoserver_06:ndvi' }
-    })
+const multiYearAAD = new ol.layer.Group({
+    title: "Multi-year AAD Maps",
+    layers: [
+        new ol.layer.Image({ title: "NO₂ - AAD 2017–2021 Map", visible: false, source: new ol.source.ImageWMS({ url: 'https://www.gis-geoserver.polimi.it/geoserver/wms', params: { 'LAYERS': 'gisgeoserver_08:10.Portugal_no2_2017-2021_AAD_map_2022.tif' }, serverType: 'geoserver' }) }),
+        new ol.layer.Image({ title: "PM2.5 – AAD 2017–2021 Map (2022)", visible: false, source: new ol.source.ImageWMS({ url: 'https://www.gis-geoserver.polimi.it/geoserver/wms', params: { 'LAYERS': 'gisgeoserver_08:12.Portugal_pm2p5_2017-2021_AAD_map_2022' }, serverType: 'geoserver' }) }),
+        new ol.layer.Image({ title: "PM10 – AAD 2017–2021 Map (2022)", visible: false, source: new ol.source.ImageWMS({ url: 'https://www.gis-geoserver.polimi.it/geoserver/wms', params: { 'LAYERS': 'gisgeoserver_08:14.Portugal_pm10_2017-2021_AAD_map_2022' }, serverType: 'geoserver' }) })
+    ]
 });
 
-let aspect = new ol.layer.Image({
-    title: "Aspect",
-    source: new ol.source.ImageWMS({
-        url: 'https://www.gis-geoserver.polimi.it/geoserver/gisgeoserver_06/wms',
-        params: { 'LAYERS': 'gisgeoserver_06:aspect' }
-    })
+const zonalStats = new ol.layer.Group({
+    title: "Zonal Statistics",
+    layers: [
+        new ol.layer.Image({ title: "NO₂ – Zonal Stats 2013–2022", visible: false, source: new ol.source.ImageWMS({ url: 'https://www.gis-geoserver.polimi.it/geoserver/wms', params: { 'LAYERS': 'gisgeoserver_08:17.Portugal_no2_zozal_statistics_2013-2022' }, serverType: 'geoserver' }) }),
+        new ol.layer.Image({ title: "PM2.5 – Zonal Stats 2013–2022", visible: false, source: new ol.source.ImageWMS({ url: 'https://www.gis-geoserver.polimi.it/geoserver/wms', params: { 'LAYERS': 'gisgeoserver_08:18.Portugal_pm2p5_zonal_statistics_2013-2022' }, serverType: 'geoserver' }) }),
+        new ol.layer.Image({ title: "PM10 - Zonal Statistics 2013–2022", visible: false, source: new ol.source.ImageWMS({ url: 'https://www.gis-geoserver.polimi.it/geoserver/wms', params: { 'LAYERS': 'gisgeoserver_08:19.Portugal_pm10_zonal_statistics_2013-2022' }, serverType: 'geoserver' }) })
+    ]
 });
 
-let dusaf = new ol.layer.Image({
-    title: "DUSAF",
-    source: new ol.source.ImageWMS({
-        url: 'https://www.gis-geoserver.polimi.it/geoserver/gisgeoserver_06/wms',
-        params: { 'LAYERS': 'gisgeoserver_06:dusaf' }
-    })
+const bivariateMaps = new ol.layer.Group({
+    title: "Bivariate Maps",
+    layers: [
+        new ol.layer.Image({ title: "NO₂ - 2020 Bivariate", visible: false, source: new ol.source.ImageWMS({ url: 'https://www.gis-geoserver.polimi.it/geoserver/wms', params: { 'LAYERS': 'gisgeoserver_08:20.Portugal_no2_2020_bivariate' }, serverType: 'geoserver' }) }),
+        new ol.layer.Image({ title: "PM2.5 - 2020 Bivariate", visible: false, source: new ol.source.ImageWMS({ url: 'https://www.gis-geoserver.polimi.it/geoserver/wms', params: { 'LAYERS': 'gisgeoserver_08:21.Portugal_pm2p5_2020_bivariate' }, serverType: 'geoserver' }) }),
+        new ol.layer.Image({ title: "PM10 - 2020 Bivariate", visible: false, source: new ol.source.ImageWMS({ url: 'https://www.gis-geoserver.polimi.it/geoserver/wms', params: { 'LAYERS': 'gisgeoserver_08:22.Portugal_pm10_2020_bivariat' }, serverType: 'geoserver' }) })
+    ]
 });
 
-let faults = new ol.layer.Image({
-    title: "Faults",
-    source: new ol.source.ImageWMS({
-        url: 'https://www.gis-geoserver.polimi.it/geoserver/gisgeoserver_06/wms',
-        params: { 'LAYERS': 'gisgeoserver_06:faults' }
-    })
+const landCover = new ol.layer.Group({
+    title: "Land Cover",
+    layers: [
+        new ol.layer.Image({ title: "Land Cover – Reclassified 2022", visible: false, source: new ol.source.ImageWMS({ url: 'https://www.gis-geoserver.polimi.it/geoserver/wms', params: { 'LAYERS': 'gisgeoserver_08:16.Portugal_LC_reclassified_2022' }, serverType: 'geoserver' }) })
+    ]
 });
 
-let plan = new ol.layer.Image({
-    title: "Plan Curvature",
-    source: new ol.source.ImageWMS({
-        url: 'https://www.gis-geoserver.polimi.it/geoserver/gisgeoserver_06/wms',
-        params: { 'LAYERS': 'gisgeoserver_06:plan' }
-    })
-});
-
-let profile = new ol.layer.Image({
-    title: "Profile Curvature",
-    source: new ol.source.ImageWMS({
-        url: 'https://www.gis-geoserver.polimi.it/geoserver/gisgeoserver_06/wms',
-        params: { 'LAYERS': 'gisgeoserver_06:profile' }
-    })
-});
-
-let rivers = new ol.layer.Image({
-    title: "Rivers",
-    source: new ol.source.ImageWMS({
-        url: 'https://www.gis-geoserver.polimi.it/geoserver/gisgeoserver_06/wms',
-        params: { 'LAYERS': 'gisgeoserver_06:rivers' }
-    })
-});
-
-let roads = new ol.layer.Image({
-    title: "Roads",
-    source: new ol.source.ImageWMS({
-        url: 'https://www.gis-geoserver.polimi.it/geoserver/gisgeoserver_06/wms',
-        params: { 'LAYERS': 'gisgeoserver_06:roads' }
-    })
-});
-
-let slope = new ol.layer.Image({
-    title: "Slope",
-    source: new ol.source.ImageWMS({
-        url: 'https://www.gis-geoserver.polimi.it/geoserver/gisgeoserver_06/wms',
-        params: { 'LAYERS': 'gisgeoserver_06:slope' }
-    })
-});
-
-let envFactorsLayers = new ol.layer.Group({
-    title: "Environmental Factors",
-    layers: [dtm, ndvi, aspect, dusaf, faults, plan, profile, rivers, roads, slope]
-});
-
-//landslideSusceptibilityMap
-let landslideSusceptibilityMap = new ol.layer.Image({
-    title: "Landslide Susceptibility Map",
-    source: new ol.source.ImageWMS({
-        url: 'https://www.gis-geoserver.polimi.it/geoserver/gisgeoserver_06/wms',
-        params: { 'LAYERS': 'gisgeoserver_06:LandslideSusceptibilityMap' }
-    })
-});
-
-let NLZ = new ol.layer.Image({
-    visible: false,
-    title: "No Landslide Zones",
-    source: new ol.source.ImageWMS({
-        url: 'https://www.gis-geoserver.polimi.it/geoserver/gisgeoserver_06/wms',
-        params: { 'LAYERS': 'gisgeoserver_06:NLZ' }
-    })
-});
-
-let LS = new ol.layer.Image({
-    visible: false,
-    title: "Landslide Inventory",
-    source: new ol.source.ImageWMS({
-        url: 'https://www.gis-geoserver.polimi.it/geoserver/gisgeoserver_06/wms',
-        params: { 'LAYERS': 'gisgeoserver_06:LS' }
-    })
-});
-
-let landslideMap = new ol.layer.Group({
-    title: "Landslide Susceptibility Map",
-    layers: [landslideSusceptibilityMap, NLZ, LS]
-});
-
-
-//Training and testing points
-let trainingPoints = new ol.layer.Image({
-    visible: false,
-    title: "Training points",
-    source: new ol.source.ImageWMS({
-        url: 'https://www.gis-geoserver.polimi.it/geoserver/gisgeoserver_06/wms',
-        params: { 'LAYERS': 'gisgeoserver_06:trainPoints' }
-    })
-});
-
-let testingPoints = new ol.layer.Image({
-    visible: false,
-    title: "Testing points",
-    source: new ol.source.ImageWMS({
-        url: 'https://www.gis-geoserver.polimi.it/geoserver/gisgeoserver_06/wms',
-        params: { 'LAYERS': 'gisgeoserver_06:testPoints' }
-    })
-});
-
-let trainTestPoints = new ol.layer.Group({
-    title: "Training and testing points",
-    layers: [trainingPoints, testingPoints]
-});
-
-//Exposure assessment
-let reclass = new ol.layer.Image({
-    title: "Landslide Susceptibility Map_Reclass",
-    source: new ol.source.ImageWMS({
-        url: 'https://www.gis-geoserver.polimi.it/geoserver/gisgeoserver_06/wms',
-        params: { 'LAYERS': 'gisgeoserver_06:LandslideSusceptibilityMap_reclass' }
-    })
-});
-
-let pop = new ol.layer.Image({
-    title: "Population Map",
-    source: new ol.source.ImageWMS({
-        url: 'https://www.gis-geoserver.polimi.it/geoserver/gisgeoserver_06/wms',
-        params: { 'LAYERS': 'gisgeoserver_06:population' }
-    })
-});
-
-let exposureAssess = new ol.layer.Group({
-    title: "Exposure assessment",
-    layers: [reclass, pop]
-});
-
-//Study area
-let area = new ol.layer.Image({
-    title: "Study area",
-    source: new ol.source.ImageWMS({
-        url: 'https://www.gis-geoserver.polimi.it/geoserver/gisgeoserver_06/wms',
-        params: { 'LAYERS': 'gisgeoserver_06:g6_area' }
-    })
-});
-
-// Map Initialization
+// 创建地图
 let map = new ol.Map({
-    target: document.getElementById('map'),
-    layers: [basemapLayers, exposureAssess, landslideMap, trainTestPoints, envFactorsLayers, area],
+    target: 'map', // 与 HTML 中的 div#map 匹配
     view: new ol.View({
-        center: ol.proj.fromLonLat([9.3770, 46.0010]),
-        zoom: 12
-    })
+        center: ol.proj.fromLonLat([-8.2, 39.6]), // 葡萄牙地理中心，大约位置在里斯本和中部之间
+        zoom: 7,// 合适的全国范围缩放级别
+        //projection: 'EPSG:4326'
+    }),
+    layers: [
+        new ol.layer.Tile({
+            title: 'OpenStreetMap',
+            type: 'base',
+            source: new ol.source.OSM()
+        }),
+        pollutionCAMS2022,
+        annualAvg2022,
+        map2020,
+        multiYearAAD,
+        landCover,
+        zonalStats,
+        bivariateMaps
+    ],
+
+    controls: [
+        new ol.control.Zoom(),
+        new ol.control.ScaleLine(),
+        new ol.control.FullScreen(),  // ✅ 加入全屏按钮
+        new ol.control.MousePosition({
+            coordinateFormat: ol.coordinate.createStringXY(4),
+            projection: 'EPSG:4326',
+            className: 'custom-mouse-position',
+            placeholder: 'Move mouse on map'
+        })
+    ]
+
 });
 
-// Add the map controls:
-map.addControl(new ol.control.ScaleLine()); //Controls can be added using the addControl() map function
-map.addControl(new ol.control.FullScreen());
-map.addControl(
-    new ol.control.MousePosition({
-        coordinateFormat: ol.coordinate.createStringXY(4),
-        projection: 'EPSG:4326',
-        className: 'custom-control',
-        placeholder: '0.0000, 0.0000'
-    })
-);
 
-// Add the layer switch
-var layerSwitcher = new ol.control.LayerSwitcher({});
+// 添加图层切换器（LayerSwitcher 控件）
+let layerSwitcher = new ol.control.LayerSwitcher({
+    tipLabel: 'Legend', // 鼠标悬停提示
+    groupSelectStyle: 'children' // 控制样式
+});
 map.addControl(layerSwitcher);
-
-//Add the Bing Maps layers
-var BING_MAPS_KEY = "Ajrza5Uk8_QGVZMe5ReBVmyutydBHz1WSIr-2DeCoOYPaAkr1Y8HdB9DXUSfyNpe";
-var bingRoads = new ol.layer.Tile({
-    title: 'Bing Maps—Roads',
-    type: 'base',
-    visible: false,
-    source: new ol.source.BingMaps({
-        key: BING_MAPS_KEY,
-        imagerySet: 'Road'
-    })
-});
-var bingAerial = new ol.layer.Tile({
-    title: 'Bing Maps—Aerial',
-    type: 'base',
-    visible: false,
-    source: new ol.source.BingMaps({
-        key: BING_MAPS_KEY,
-        imagerySet: 'Aerial'
-    })
-});
- basemapLayers.getLayers().extend([bingRoads, bingAerial]);
-
-
-
