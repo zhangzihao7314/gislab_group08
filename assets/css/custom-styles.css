@@ -108,4 +108,47 @@
     border: 1px solid #ccc;
 }
 
+/* 鼠标悬停时微弱背景高亮 */
+.layer-switcher label:hover {
+  background-color: #e6e2f9;
+}
+
+/* 子图层的缩进 */
+.layer-switcher .layer > label {
+  margin-left: 10px;
+}
+
+/* 整体图层切换器样式 */
+.layer-switcher {
+  font-family: Arial, sans-serif;
+}
+
+/* 图层组标题（加粗、不变） */
+.layer-switcher .group > label {
+  font-weight: bold;
+  font-size: 16px; /* 或默认大小 */
+}
+
+/* 图层子项（字体小一点） */
+.layer-switcher .layer > label {
+  font-size: 12px; /* 原来是 14px 或更大，缩小 */
+}
+
+/* 复选框对齐优化 */
+.layer-switcher label {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  line-height: 1.4em;
+}
+
+.layer-switcher input[type="checkbox"] {
+  width: 14px;
+  height: 14px;
+  vertical-align: middle;
+}
+
+
+
+
 /* 可扩展样式：图层面板、Legend 等可以继续添加 */
