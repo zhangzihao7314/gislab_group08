@@ -42,24 +42,88 @@
 			<section class="post">
 				<header>
 					<h1>results</h1>
-					<p>This section will present the results of the lab, in particular regarding the Susceptibility Maps
-						and the Exposure Assessment.</p>
+					<p>说明</p>
 				</header>
-				<div class="image-row">
-					<div class="image-item">
-						<img src="images/NO2_chart.png" alt="NO2" />
-						<p>NO₂</p>
-					</div>
-					<div class="image-item">
-						<img src="images/PM2P5_chart.png" alt="PM2.5" />
-						<p>PM2.5</p>
-					</div>
-					<div class="image-item">
-						<img src="images/PM10_chart.png" alt="PM10" />
-						<p>PM10</p>
-					</div>
+			</section>
+
+			<section class="post">
+				<p style="text-align: center; font-size: x-large">1. Status of Air Pollutants (NO₂ , PM2.5, PM10) in the
+					Case Area</p>
+				<div class="image main" style="width: 90%; margin: 0 auto"><img src="images/concentration_yearly.jpg"
+						alt="" />
+					<p style="text-align: center">concentration_yearly</p>
 				</div>
-								<div class="image-row">
+				<p> NO₂ and PM10 fall into Level 1 and Level 2 in most areas,
+					while PM2.5 mainly appears in Level 2 and Level 3 zones. Overall pollutant concentrations are low,
+					but concentrations are higher in the northwest (Porto) and southwest (Lisbon surroundings).</p>
+			</section>
+
+			<section class="post">
+				<p style="text-align: center; font-size: x-large">2. Historical Trends of Air Pollutants</p>
+				<ul>
+					<li><b>Seasonal Pollutant Variations in 2022</b>
+						<div class="image main" style="width: 90%; margin: 0 auto"><img src="images/seasonal-no2.jpg"
+								alt="" />
+							<p style="text-align: center">no2-seasonal</p>
+						</div>
+						<div class="image main" style="width: 90%; margin: 0 auto"><img src="images/seasonal-pm2p5.jpg"
+								alt="" />
+							<p style="text-align: center">pm2p5-seasonal</p>
+						</div>
+						<div class="image main" style="width: 90%; margin: 0 auto"><img src="images/seasonal-pm10.jpg"
+								alt="" />
+							<p style="text-align: center">pm10-seasonal</p>
+						</div>
+						</br>All three types of pollutants generally show a trend of being higher in winter, lower in
+						summer, and rising again in autumn. This may be related to the combustion of heating fuels and
+						meteorological factors—such as atmospheric inversion and low wind speeds in winter hindering
+						dispersion, while strong air convection and frequent precipitation in summer help dilute
+						pollutants.
+					</li>
+					<li><b>Difference Between 2022 and the 5-Year Average (2017–2021)</b>
+						<div class="image main" style="width: 90%; margin: 0 auto"><img src="images/5-year.jpg"
+								alt="" />
+							<p style="text-align: center">pm10-seasonal</p>
+						</div>
+						</br>NO₂ concentrations in 2022
+						show an overall decrease compared to the past five years, especially in urban areas. This may be
+						due to traffic not fully resuming after the pandemic or due to emission control policies. PM2.5
+						shows a larger decrease in central areas (likely near inland industrial zones), indicating
+						improved air quality in 2022. PM10 shows the least variation, remaining generally stable with
+						only slight decreases.
+					</li>
+					<li><b>Pollution Changes in Urban Areas (2013–2022)</b>
+
+						<div class="image-row">
+							<div class="image-item">
+								<img src="images/NO2_chart.png" alt="NO2" />
+								<p>NO₂</p>
+							</div>
+							<div class="image-item">
+								<img src="images/PM2P5_chart.png" alt="PM2.5" />
+								<p>PM2.5</p>
+							</div>
+							<div class="image-item">
+								<img src="images/PM10_chart.png" alt="PM10" />
+								<p>PM10</p>
+							</div>
+						</div>
+						</br>The 2020 pandemic briefly improved urban
+						air quality, notably with declines in NO₂ and PM2.5. Pollution levels started to rebound in
+						2021–2022, with PM2.5 and NO₂ increasing significantly. Long-term pollution control should
+						continue to focus on transportation and industrial emissions.
+					</li>
+				</ul>
+			</section>
+
+			<section class="post">
+				<p style="text-align: center; font-size: x-large">3. Population Exposure to Different Pollution Levels
+				</p>
+				<div class="image main" style="width: 90%; margin: 0 auto"><img src="images/population_pollution.jpg"
+						alt="" />
+					<p style="text-align: center">population_pollution</p>
+				</div>
+				<div class="image-row">
 					<div class="image-item">
 						<img src="images/no2_PieChart.png" alt="NO2" />
 						<p>NO₂</p>
@@ -69,104 +133,30 @@
 						<p>PM2.5</p>
 					</div>
 					<div class="image-item">
-						<img src="images/pm10_PieChart.PNG" alt="PM10" />
+						<img src="images/pm10_PieChart.png" alt="PM10" />
 						<p>PM10</p>
 					</div>
 				</div>
 
-				<div class="image main" style="width: 75%; margin: 0 auto"><img src="images/2022.12 月度平均值.png"
-						alt="" />
-					<p style="text-align: center">2022.12 月度平均值</p>
-				</div>
-
-				<div class="image main" style="width: 75%; margin: 0 auto"><img src="images/AAD.png"
-						alt="" />
-					<p style="text-align: center">AAD</p>
-				</div>
-
-				<div class="image main" style="width: 75%; margin: 0 auto"><img src="images/reclassfied.png"
-						alt="" />
-					<p style="text-align: center">reclassfied</p>
-				</div>
-
-				<div class="image main" style="width: 75%; margin: 0 auto"><img src="images/行政图.png"
-						alt="" />
-					<p style="text-align: center">行政图</p>
-				</div>
-
-
-				<p style="text-align: center; font-size: x-large">Landslide Susceptibility Map</p>
-				
-				<p>Validate the classification results using a Python script. This process will utilize the test points
-					set to produce an error matrix.</p>
-				<div class="table-wrapper">
-					<table>
-						<thead>
-							<tr>
-								<th>HAZARD</th>
-								<th>1</th>
-								<th>2</th>
-								<th>UA</th>
-								<th>PA</th>
-								<th>OA</th>
-							</tr>
-						</thead>
-						<tbody>
-							<tr>
-								<td>1</td>
-								<td>120</td>
-								<td>45</td>
-								<td>0.73</td>
-								<td>0.8</td>
-								<td>0.733333</td>
-							</tr>
-							<tr>
-								<td>2</td>
-								<td>18</td>
-								<td>100</td>
-								<td>0.85</td>
-								<td>0.67</td>
-							</tr>
-						</tbody>
-						<tfoot>
-						</tfoot>
-					</table>
-					<P style="text-align: center">ErrorMatrix</P>
-				</div>
-				<p>The overall accuracy is 0.7333. Practice has shown that increasing the number of randomly generated
-					point sets can improve precision.</p>
+				<p>More than half the population is exposed to high NO ₂ concentrations, mainly in large cities or
+					traffic-heavy areas (e.g., Lisbon, Porto). The vast majority of people are exposed to medium-to-high
+					PM2.5 concentrations, with very few people in low-exposure areas, indicating widespread PM2.5
+					coverage that requires serious attention. Exposure to PM10 is more balanced, though nearly half the
+					population still falls within high-exposure areas. </p>
 			</section>
+
 			<section class="post">
-				<p style="text-align: center; font-size: x-large">Exposure Assessment Results</p>
-				<div class="image main" style="width: 50%; margin: 0 auto"><img src="images/PieChart.jpg" alt="" />
-					<p style="text-align: center">Population exposure</p>
-				</div>
-				<p>Calculate the population counts for each susceptibility class and create a pie chart. The analysis
-					shows that although most
-					of the region has a high risk of landslide disasters, less than 40% of the population is exposed to
-					high-risk areas. This can be attributed to the region's topography, as the majority of the area is
-					mountainous, while the population tends to be concentrated in the lower-risk plains. </p>
-			</section>
-			<section class="post">
-				<p style="text-align: center; font-size: x-large">Problems and Limitations</p>
-				<ul>
-					<li><b>Raster Negative Value</b></br>Some cells may have negative values while generating the
-						Susceptibility Map in step 2. If these negative values are not set to null, they can influence
-						subsequent reclassification and resampling processes, thereby affecting the overall accuracy of
-						the results.</li>
-					<li><b>Results Discrepancy</b> </br>Upon comparing our results with the landslide hazard risk level
-						map from the Italian web platform on landslides and floods, we found that the actual high-risk
-						areas are significantly smaller than those shown in our Landslide Susceptibility Map. We
-						hypothesize that this difference is due to our consideration of an insufficient number of
-						environmental factors and the overly simplistic definition of No Landslide Zones, which is only
-						based on slope.</li>
-				</ul>
+				<p style="text-align: center; font-size: x-large">4.Issues and Limitations</p>
+				<p>The land cover data is from 2020, while pollutant data ranges from 2013 to 2022. This temporal
+					mismatch between datasets affects the accuracy of trend analyses and population exposure
+					assessments.</p>
+				<p>Each pollutant (NO₂ , PM2.5, PM10) is analyzed separately; there is no evaluation of the combined
+					health impact or population exposure to multiple pollutants. In reality, the co-occurrence of
+					multiple pollutants can pose more serious health risks.</p>
 				<ul class="actions special" style="margin-top: 5rem">
 					<li><a href="webgis.html" class="button large">EXPLORE THE WebGIS</a></li>
 				</ul>
 			</section>
-			<!--								<div class="image main"><img src="images/pic01.jpg" alt="" /></div>-->
-
 
 		</div>
 	</div>
@@ -176,8 +166,8 @@
 			<section>
 				<h2>EXPLORE THE SOURCE CODE</h2>
 				<ul class="icons alt">
-					<li><a href="https://github.com/zhangzihao7314/GIS_polimi"
-							class="icon brands alt fa-github"><span class="label">GitHub</span></a></li>
+					<li><a href="https://github.com/zhangzihao7314/GIS_polimi" class="icon brands alt fa-github"><span
+								class="label">GitHub</span></a></li>
 				</ul>
 			</section>
 		</section>
