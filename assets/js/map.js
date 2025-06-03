@@ -174,7 +174,7 @@ const multiYearAAD = new ol.layer.Group({
 
 //ReclassiFFied Land Cover-2022
 const landCover = new ol.layer.Group({
-    title: "ReclassiFFied Land Cover-2022",
+    title: "Reclassiffied Land Cover-2022",
     layers: [
         new ol.layer.Image({
             title: "Land Cover – Reclassified 2022",
