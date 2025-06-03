@@ -232,6 +232,39 @@ const bivariateMaps = new ol.layer.Group({
     ]
 });
 
+//chart-2020
+const portugalChart = new ol.layer.Group({
+    title: "Portugal Chart-2020",
+    layers: [
+        new ol.layer.Image({
+            title: "Portugal_pm10_2020_chart",
+            visible: false,
+            source: new ol.source.ImageWMS({
+                url: 'https://www.gis-geoserver.polimi.it/geoserver/wms',
+                params: { 'LAYERS': 'gisgeoserver_08:25.Portugal_pm10_2020_chart' },
+                serverType: 'geoserver'
+            })
+        }),
+        new ol.layer.Image({
+            title: "Portugal_pm2p5_2020_chart",
+            visible: false,
+            source: new ol.source.ImageWMS({
+                url: 'https://www.gis-geoserver.polimi.it/geoserver/wms',
+                params: { 'LAYERS': 'gisgeoserver_08:24.Portugal_pm2p5_2020_chart' },
+                serverType: 'geoserver'
+            })
+        }),
+        new ol.layer.Image({
+            title: "Portugal_no2_2020_chart",
+            visible: false,
+            source: new ol.source.ImageWMS({
+                url: 'https://www.gis-geoserver.polimi.it/geoserver/wms',
+                params: { 'LAYERS': 'gisgeoserver_08:23.Portugal_no2_2020_chart' },
+                serverType: 'geoserver'
+            })
+        })
+    ]
+});
 
 
 // 创建地图
@@ -244,6 +277,7 @@ let map = new ol.Map({
     }),
     layers: [
         baseLayerGroup,
+        portugalChart,
         bivariateMaps,
         zonalStats,
         landCover,
